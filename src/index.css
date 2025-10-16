@@ -1,0 +1,46 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  line-height: 1.5;
+  font-size: 100%;
+  --main-color: #2b7fff;
+  --text-color:#444444;
+  --main-button-hover-color: #51a2ff;
+
+}
+
+body {
+  margin: 0;
+}
+
+* {
+   font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  :root {
+    font-size: 90%;
+  }
+}
+
+/* Small Tablets and large phones*/
+@media (max-width: 768px) {
+  :root {
+    /* 1rem = 8px */
+    font-size: 70%;
+  }
+}
+
+/* Phones */
+@media (max-width: 425px) {
+  :root {
+    /* 1rem = 7px */
+    font-size: 43.75%;
+  }
+}
