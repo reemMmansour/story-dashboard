@@ -11,7 +11,7 @@ export const AppRoutes = () => {
       <Route path="/" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route
-        path="/dashboard"
+        path="/admin"
         element={
           <ProtectedRoute>
             <Dashboard />

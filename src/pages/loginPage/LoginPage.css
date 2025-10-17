@@ -2,14 +2,18 @@
   background-image: url(../../assets/BG.png);
 }
 
-label {
+.login-form .title {
+  color: var(--main-color);
+}
+.login-form .ant-form-item .ant-form-item-label > label {
   color: var(--text-color);
+  font-weight: 600;
 }
 
-.login-form .login-btn {
+/* .login-form .login-btn {
   background-color: var(--main-color);
   color: #fff;
-}
+} */
 .login-form .login-btn:hover {
   background-color: var(--main-button-hover-color);
 }

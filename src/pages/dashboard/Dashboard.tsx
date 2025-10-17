@@ -1,6 +1,8 @@
-
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { Button } from "antd";
+import { IoLogOutOutline } from "react-icons/io5";
+import StoryPage from "../storyPage/StoryPage";
 
 const Dashboard = () => {
   const auth = useAuth();
@@ -12,9 +14,14 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col p-5 ">
       <p>This is the Admin Dashboard.</p>
-      <button onClick={handleLogout}>Logout</button>
+      <Button
+        size="large"
+        shape="circle"
+        icon={<IoLogOutOutline />}
+        onClick={handleLogout}></Button>
+      <StoryPage></StoryPage>
     </div>
   );
 };
