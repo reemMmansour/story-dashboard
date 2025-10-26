@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { Button } from "antd";
-import { IoLogOutOutline } from "react-icons/io5";
+import { LogoutOutlined } from "@ant-design/icons";
 import StoryPage from "../storyPage/StoryPage";
-
+import Layout, { Content, Footer, Header } from "antd/es/layout/layout";
+import Sider from "antd/es/layout/Sider";
+import SidebarMenu from "../../layout/sidebarMenu/SidebarMenu";
+import "./Dashboard.css";
 const Dashboard = () => {
   const auth = useAuth();
   const navigate = useNavigate();
@@ -14,15 +17,38 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col p-5 ">
-      <p>This is the Admin Dashboard.</p>
-      <Button
-        size="large"
-        shape="circle"
-        icon={<IoLogOutOutline />}
-        onClick={handleLogout}></Button>
-      <StoryPage></StoryPage>
-    </div>
+    <>
+      <Layout>
+        <Header className="flex justify-between items-center header">
+          <h1 className="text-4xl">Logo</h1>
+          <Button
+            size="large"
+            shape="circle"
+            onClick={handleLogout}>
+            <LogoutOutlined />
+          </Button>
+        </Header>
+
+        <Layout>
+          <Sider
+            style={{
+              padding: "1rem .5rem",
+              color: "white",
+              background: "white",
+            }}>
+            <SidebarMenu></SidebarMenu>
+          </Sider>
+          <Layout style={{ minHeight: "100vh" }}>
+            <Content >
+              <div  style={{ padding: 24 }}>
+                <StoryPage></StoryPage>
+              </div>
+            </Content>
+            <Footer>footer</Footer>
+          </Layout>
+        </Layout>
+      </Layout>
+    </>
   );
 };
 

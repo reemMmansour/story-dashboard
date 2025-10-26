@@ -6,31 +6,33 @@ import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import type { ILoginForm } from "../../models/auth.model";
 import type { IUserData } from "../../models/login.model";
 import { useAuth } from "../../hooks/useAuth";
-import axios from "axios";
-import { baseUrl, endPoints } from "../../constants/Apis";
 import { toast, Toaster } from "sonner";
+import { loginApi } from "../../services/apis/loginApi";
+// import { getStoriesApi } from "../../services/apis/storiesApi";
 
 const { Title } = Typography;
 
 const LoginPage = () => {
+  // getStoriesApi();
   const [loading, setLoading] = useState(false);
   const auth = useAuth();
   const navigate = useNavigate();
-
   const onFinish = async (values: ILoginForm) => {
     setLoading(true);
     try {
-      const res = await axios.post(baseUrl + endPoints.login, values);
-      if (res?.data?.result) {
+      const res = await loginApi(values);
+      // const story = await getStoriesApi();
+      // console.log(story);
+
+      if (res?.result) {
         console.log("You have successfully logged in.");
-        const token = res.data.access_token;
-        const user: IUserData = res.data.user;
+        const token = res.access_token;
+        const user: IUserData = res.user;
         auth.login(token, user);
         toast.success("You have successfully logged in.");
         navigate("/admin");
       } else {
-        toast.error(res.data.message || "login failed");
-
+        toast.error(res.message || "login failed");
       }
     } catch (error) {
       console.error(error);

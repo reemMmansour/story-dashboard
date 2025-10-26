@@ -1,6 +1,6 @@
 import { TbCircleDashedLetterR } from "react-icons/tb";
 import "./Header.css";
-import { menuItems } from "../../constants/Apis";
+import { menuItems } from "../../services/endPoints";
 import Button from "../../components/button/Button";
 import { BiMenuAltRight, BiX } from "react-icons/bi";
 import MobileMenu from "../../components/MobileMenu/MobileMenu";
